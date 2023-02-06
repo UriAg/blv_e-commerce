@@ -1,0 +1,14 @@
+/*General*/
+@import url('./general.css');
+
+/*Navigation*/
+@import url('./navigation/navigation.css');
+
+/*Header*/
+@import url('./header/header.css');
+
+/*Main*/
+@import url('./main/main.css');
+
+/*Footer*/
+@import url('./footer/footer.css');

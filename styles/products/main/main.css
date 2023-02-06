@@ -1,0 +1,18 @@
+main {
+  width: 100%;
+  min-height: 100vh;
+}
+main section article {
+  width: 100%;
+  background-color: #444;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+main section article div {
+  margin: 0.5em;
+  background-color: aquamarine;
+  width: 15%;
+  height: 15em;
+}

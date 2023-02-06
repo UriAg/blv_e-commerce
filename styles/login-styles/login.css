@@ -1,0 +1,416 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Overpass', sans-serif;
+  font-weight: normal;
+  font-size: 100%;
+  color: #1b262c;
+  background-image: url("../../assets/bg/dkstp/Tablaschicas.JPG");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+body .general__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+body .general__container #login__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+body .general__container #login__container #central {
+  max-width: 320px;
+}
+body .general__container #login__container #central #login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 23em;
+  width: 100%;
+  padding: 50px 30px;
+  background-color: rgba(163, 46, 13, 0.72);
+  -webkit-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  box-sizing: border-box;
+}
+body .general__container #login__container #central #login .title {
+  width: 100%;
+  color: #ffc0af;
+  text-align: center;
+  margin-bottom: 20px;
+}
+body .general__container #login__container #central #login .title h1 {
+  font-size: 2em;
+  font-weight: 100;
+}
+body .general__container #login__container #central #login #login__form input {
+  font-family: 'Overpass', sans-serif;
+  font-size: 110%;
+  color: #1b262c;
+  display: block;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  margin-bottom: 10px;
+  padding: 5px 5px 5px 10px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+}
+body .general__container #login__container #central #login #login__form input::placeholder {
+  font-family: 'Overpass', sans-serif;
+  color: #d1b1b1;
+}
+body .general__container #login__container #central #login #login__form button {
+  font-family: 'Overpass', sans-serif;
+  font-size: 110%;
+  color: #1b262c;
+  width: 100%;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  background-color: #ffc0af;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+body .general__container #login__container #central #login #login__form button:hover {
+  background-color: #c9512f;
+  color: #ffc0af;
+}
+body .general__container #login__container #central #login .form__foot {
+  font-size: 90%;
+  text-align: center;
+  margin-top: 15px;
+}
+body .general__container #login__container #central #login .form__foot a {
+  display: block;
+  text-decoration: none;
+  color: #ffc0af;
+  margin-bottom: 3px;
+  transition: all 0.3s ease;
+}
+body .general__container #login__container #central #login .form__foot a:hover {
+  color: #c9512f;
+}
+body .general__container #login__container #central .back {
+  margin-top: 10px;
+  font-size: 90%;
+  text-align: center;
+}
+body .general__container #login__container #central .back a {
+  display: block;
+  text-decoration: none;
+  color: #ffc0af;
+  margin-bottom: 3px;
+  transition: all 0.3s ease;
+}
+body .general__container #login__container #central .back a:hover {
+  color: #c9512f;
+}
+body .general__container #register__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+body .general__container #register__container #central {
+  max-width: 320px;
+}
+body .general__container #register__container #central #register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 23em;
+  width: 100%;
+  padding: 50px 30px;
+  background-color: rgba(163, 46, 13, 0.72);
+  -webkit-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  box-sizing: border-box;
+}
+body .general__container #register__container #central #register .title {
+  width: 100%;
+  color: #ffc0af;
+  text-align: center;
+  margin-bottom: 20px;
+}
+body .general__container #register__container #central #register .title h1 {
+  font-size: 2em;
+  font-weight: 100;
+}
+body .general__container #register__container #central #register #register__form input {
+  font-family: 'Overpass', sans-serif;
+  font-size: 110%;
+  color: #1b262c;
+  display: block;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  margin-bottom: 10px;
+  padding: 5px 5px 5px 10px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+}
+body .general__container #register__container #central #register #register__form input::placeholder {
+  font-family: 'Overpass', sans-serif;
+  color: #d1b1b1;
+}
+body .general__container #register__container #central #register #register__form button {
+  font-family: 'Overpass', sans-serif;
+  font-size: 110%;
+  color: #1b262c;
+  width: 100%;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  background-color: #ffc0af;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+body .general__container #register__container #central #register #register__form button:hover {
+  background-color: #c9512f;
+  color: #ffc0af;
+}
+body .general__container #register__container #central #register .form__foot {
+  font-size: 90%;
+  text-align: center;
+  margin-top: 15px;
+}
+body .general__container #register__container #central #register .form__foot a {
+  display: block;
+  text-decoration: none;
+  color: #ffc0af;
+  margin-bottom: 3px;
+  transition: all 0.3s ease;
+}
+body .general__container #register__container #central #register .form__foot a:hover {
+  color: #c9512f;
+}
+body .general__container #register__container #central .back {
+  margin-top: 10px;
+  font-size: 90%;
+  text-align: center;
+}
+body .general__container #register__container #central .back a {
+  display: block;
+  text-decoration: none;
+  color: #ffc0af;
+  margin-bottom: 3px;
+  transition: all 0.3s ease;
+}
+body .general__container #register__container #central .back a:hover {
+  color: #c9512f;
+}
+body .general__container #recovery__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+body .general__container #recovery__container #central {
+  max-width: 320px;
+}
+body .general__container #recovery__container #central #recovery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 23em;
+  width: 100%;
+  padding: 50px 30px;
+  background-color: rgba(163, 46, 13, 0.72);
+  -webkit-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  box-sizing: border-box;
+}
+body .general__container #recovery__container #central #recovery .title {
+  width: 100%;
+  color: #ffc0af;
+  text-align: center;
+  margin-bottom: 20px;
+}
+body .general__container #recovery__container #central #recovery .title h1 {
+  font-size: 1.5em;
+  font-weight: 100;
+}
+body .general__container #recovery__container #central #recovery #recovery__form input {
+  font-family: 'Overpass', sans-serif;
+  font-size: 110%;
+  color: #1b262c;
+  display: block;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  margin-bottom: 10px;
+  padding: 5px 5px 5px 10px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+}
+body .general__container #recovery__container #central #recovery #recovery__form input::placeholder {
+  font-family: 'Overpass', sans-serif;
+  color: #d1b1b1;
+}
+body .general__container #recovery__container #central #recovery #recovery__form button {
+  font-family: 'Overpass', sans-serif;
+  font-size: 110%;
+  color: #1b262c;
+  width: 100%;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  background-color: #ffc0af;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+body .general__container #recovery__container #central #recovery #recovery__form button:hover {
+  background-color: #c9512f;
+  color: #ffc0af;
+}
+body .general__container #recovery__container #central #recovery .form__foot {
+  font-size: 90%;
+  text-align: center;
+  margin-top: 15px;
+}
+body .general__container #recovery__container #central #recovery .form__foot a {
+  display: block;
+  text-decoration: none;
+  color: #ffc0af;
+  margin-bottom: 3px;
+  transition: all 0.3s ease;
+}
+body .general__container #recovery__container #central #recovery .form__foot a:hover {
+  color: #c9512f;
+}
+body .general__container .bad {
+  color: #bb2727;
+  padding: 1em;
+  background-color: #1b262cd0;
+}
+body .back {
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+}
+body .back a {
+  display: block;
+  text-decoration: none;
+  color: #ffc0af;
+  margin-bottom: 3px;
+  transition: all 0.3s ease;
+}
+body .back a:hover {
+  color: #c9512f;
+}
+body .verify__code {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 23em;
+  max-width: 320px;
+  padding: 20px 10px;
+  background-color: rgba(163, 46, 13, 0.72);
+  -webkit-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  box-sizing: border-box;
+  text-align: center;
+}
+body .verify__code .title {
+  width: 100%;
+  color: #ffc0af;
+  text-align: center;
+  margin-bottom: 20px;
+}
+body .verify__code .title h1 {
+  font-size: 1.5em;
+  font-weight: 100;
+}
+body .verify__code .verify__form input {
+  font-family: 'Overpass', sans-serif;
+  font-size: 110%;
+  color: #1b262c;
+  display: block;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  margin-bottom: 10px;
+  padding: 5px 5px 5px 10px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+}
+body .verify__code .verify__form input::placeholder {
+  font-family: 'Overpass', sans-serif;
+  color: #d1b1b1;
+}
+body .verify__code .verify__form button {
+  font-family: 'Overpass', sans-serif;
+  font-size: 110%;
+  color: #1b262c;
+  width: 100%;
+  height: 2.5em;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  background-color: #ffc0af;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+body .verify__code .verify__form button:hover {
+  background-color: #c9512f;
+  color: #ffc0af;
+}

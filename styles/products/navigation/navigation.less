@@ -1,0 +1,112 @@
+#nav{
+    position: sticky;
+    top: 0;
+    background-color: rgb(196, 66, 30);
+    transition: background .3s ease;
+    nav{
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap-reverse;
+        width: 100%;
+        gap: .5rem;
+        padding: .5rem;
+        text-decoration: none;
+        font-family: 'Lato', Roboto;
+        font-size: 1.2em;
+    
+        .logo{
+            margin-left: 5em;
+        }
+    
+        button{
+            display: none;
+        }
+        .menu{
+            display: flex;
+            li{
+                a:hover{
+                    color: rgba(152, 51, 23, 0.708);
+                }
+                text-decoration: none;
+                padding: .3em .5em;
+            }
+        }
+        
+    }
+}
+.scroll-style{
+    background-color: rgba(196, 66, 30, 0.708)!important;
+}
+
+@media screen and (max-width: 600px) {
+    #nav{
+        nav{
+            position: fixed;
+            bottom: 0;
+            top: auto;
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: space-evenly;
+            opacity: 1;
+            background-color: #000000c2;
+            width: 100%;
+            padding: 0;
+            z-index: 2;
+                
+            .logo{
+                margin-left: 0;
+            }
+    
+            .btn__menu[class*="btn__menu--"]{
+                display: inline;
+                width: 3.125rem;
+                height: 3.125rem;
+                font-size: 30px;
+                color: rgb(255, 255, 255);
+                background-color: rgba(0, 0, 0, 0.5);
+                background: fixed;
+                border: 1px solid #fff;
+                border-radius: 5px;
+            }
+    
+            .btn__menu--open::before{
+                content: '\2630';
+            }
+    
+            .btn__menu--close::before{
+                content: '\2715';
+            }
+    
+            .menu{
+                display: flex;
+                position: absolute;
+                flex-direction: column;
+                width: 100%;
+                bottom: -500px;
+                background-color: #000000c2;
+                transition: all .5s ease-in-out;
+                li{
+                    width: 100%;
+                    a{
+                        padding: .95em;
+                        display: block;
+                    }
+                }
+            }
+    
+            .menu.active{
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                width: 100%;
+                bottom: 86px;
+                border-bottom: 1px solid rgb(20, 84, 5);
+                background-color: #000000c2;
+            }
+    
+            
+        }
+    } 
+}

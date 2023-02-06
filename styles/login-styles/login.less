@@ -1,0 +1,476 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Overpass', sans-serif;
+    font-weight: normal;
+    font-size: 100%;
+    color: #1b262c;
+    background-image: url("../../assets/bg/dkstp/Tablaschicas.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .general__container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        #login__container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            #central{
+                max-width: 320px;
+                #login{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    height: 23em;
+                    width: 100%;
+                    padding: 50px 30px;
+                    background-color: rgba(163, 46, 13, 0.72);
+        
+                    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+                    -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+                    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+                    
+                    border-radius: 3px 3px 3px 3px;
+                    -moz-border-radius: 3px 3px 3px 3px;
+                    -webkit-border-radius: 3px 3px 3px 3px;
+                    
+                    box-sizing: border-box;
+                    .title {
+                        width: 100%;
+                        color:rgb(255, 192, 175);
+                        text-align: center;
+                        margin-bottom: 20px;
+                        h1{
+                            font-size: 2em;
+                            font-weight: 100;
+                        }
+                    }
+                    #login__form{
+                        input{
+                            font-family: 'Overpass', sans-serif;
+                            font-size: 110%;
+                            color: #1b262c;
+                            
+                            display: block;
+                            width: 100%;
+                            height: 40px;
+                            outline: none;
+                            margin-bottom: 10px;
+                            padding: 5px 5px 5px 10px;
+                            
+                            box-sizing: border-box;
+                            
+                            border: none;
+                            border-radius: 3px 3px 3px 3px;
+                            -moz-border-radius: 3px 3px 3px 3px;
+                            -webkit-border-radius: 3px 3px 3px 3px;
+        
+                            &::placeholder{
+                                font-family: 'Overpass', sans-serif;
+                                color: #d1b1b1;
+                            }
+                        }
+                        
+                        button {
+                            font-family: 'Overpass', sans-serif;
+                            font-size: 110%;
+                            color:#1b262c;
+                            width: 100%;
+                            height: 40px;
+                            border: none;
+                            cursor: pointer;
+                            border-radius: 3px 3px 3px 3px;
+                            -moz-border-radius: 3px 3px 3px 3px;
+                            -webkit-border-radius: 3px 3px 3px 3px;
+                            
+                            background-color: rgb(255, 192, 175);
+                            
+                            margin-top: 10px;
+                            transition: all .3s ease;
+        
+                            &:hover{
+                                background-color: rgb(201, 81, 47);
+                                color:rgb(255, 192, 175);
+                            }
+                        }
+                    }
+                    .form__foot {
+                        font-size: 90%;
+                        text-align: center;    
+                        margin-top: 15px;
+                        a {
+                            display: block;
+                            text-decoration: none;
+                            color: rgb(255, 192, 175);
+                            margin-bottom: 3px;
+                            transition: all .3s ease;
+                            &:hover {
+                                color: rgb(201, 81, 47);
+                            }
+                        }
+                    }
+                }
+                .back {
+                    margin-top: 10px;
+                    font-size: 90%;
+                    text-align: center;
+                    a {
+                        display: block;
+                        text-decoration: none;
+                        color: rgb(255, 192, 175);
+                        margin-bottom: 3px;
+                        transition: all .3s ease;
+                        &:hover {
+                            color: rgb(201, 81, 47);
+                        }
+                    }
+                }
+            }
+        }
+        
+        #register__container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            #central{
+                max-width: 320px;
+                #register{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    height: 23em;
+                    width: 100%;
+                    padding: 50px 30px;
+                    background-color: rgba(163, 46, 13, 0.72);
+        
+                    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+                    -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+                    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+                    
+                    border-radius: 3px 3px 3px 3px;
+                    -moz-border-radius: 3px 3px 3px 3px;
+                    -webkit-border-radius: 3px 3px 3px 3px;
+                    
+                    box-sizing: border-box;
+                    .title {
+                        width: 100%;
+                        color:rgb(255, 192, 175);
+                        text-align: center;
+                        margin-bottom: 20px;
+                        h1{
+                            font-size: 2em;
+                            font-weight: 100;
+                        }
+                    }
+                    #register__form{
+                        input{
+                            font-family: 'Overpass', sans-serif;
+                            font-size: 110%;
+                            color: #1b262c;
+                            
+                            display: block;
+                            width: 100%;
+                            height: 40px;
+                            outline: none;
+                            margin-bottom: 10px;
+                            padding: 5px 5px 5px 10px;
+                            
+                            box-sizing: border-box;
+                            
+                            border: none;
+                            border-radius: 3px 3px 3px 3px;
+                            -moz-border-radius: 3px 3px 3px 3px;
+                            -webkit-border-radius: 3px 3px 3px 3px;
+        
+                            &::placeholder{
+                                font-family: 'Overpass', sans-serif;
+                                color: #d1b1b1;
+                            }
+                        }
+                        button {
+                            font-family: 'Overpass', sans-serif;
+                            font-size: 110%;
+                            color:#1b262c;
+                            width: 100%;
+                            height: 40px;
+                            border: none;
+                            cursor: pointer;
+                            border-radius: 3px 3px 3px 3px;
+                            -moz-border-radius: 3px 3px 3px 3px;
+                            -webkit-border-radius: 3px 3px 3px 3px;
+                            
+                            background-color: rgb(255, 192, 175);
+                            
+                            margin-top: 10px;
+                            transition: all .3s ease;
+        
+                            &:hover{
+                                background-color: rgb(201, 81, 47);
+                                color:rgb(255, 192, 175);
+                            }
+                        }
+                    }
+                    .form__foot {
+                        font-size: 90%;
+                        text-align: center;    
+                        margin-top: 15px;
+                        a {
+                            display: block;
+                            text-decoration: none;
+                            color: rgb(255, 192, 175);
+                            margin-bottom: 3px;
+                            transition: all .3s ease;
+                            &:hover {
+                                color: rgb(201, 81, 47);
+                            }
+                        }
+                    }
+                }
+                .back {
+                    margin-top: 10px;
+                    font-size: 90%;
+                    text-align: center;
+                    a {
+                        display: block;
+                        text-decoration: none;
+                        color: rgb(255, 192, 175);
+                        margin-bottom: 3px;
+                        transition: all .3s ease;
+                        &:hover {
+                            color: rgb(201, 81, 47);
+                        }
+                    }
+                }
+            }
+        }
+        
+        #recovery__container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            #central{
+                max-width: 320px;
+                #recovery{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    height: 23em;
+                    width: 100%;
+                    padding: 50px 30px;
+                    background-color: rgba(163, 46, 13, 0.72);
+        
+                    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+                    -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+                    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+                    
+                    border-radius: 3px 3px 3px 3px;
+                    -moz-border-radius: 3px 3px 3px 3px;
+                    -webkit-border-radius: 3px 3px 3px 3px;
+                    
+                    box-sizing: border-box;
+                    .title {
+                        width: 100%;
+                        color:rgb(255, 192, 175);
+                        text-align: center;
+                        margin-bottom: 20px;
+                        h1{
+                            font-size: 1.5em;
+                            font-weight: 100;
+                        }
+                    }
+                    #recovery__form{
+                        input{
+                            font-family: 'Overpass', sans-serif;
+                            font-size: 110%;
+                            color: #1b262c;
+                            
+                            display: block;
+                            width: 100%;
+                            height: 40px;
+                            outline: none;
+                            margin-bottom: 10px;
+                            padding: 5px 5px 5px 10px;
+                            
+                            box-sizing: border-box;
+                            
+                            border: none;
+                            border-radius: 3px 3px 3px 3px;
+                            -moz-border-radius: 3px 3px 3px 3px;
+                            -webkit-border-radius: 3px 3px 3px 3px;
+        
+                            &::placeholder{
+                                font-family: 'Overpass', sans-serif;
+                                color: #d1b1b1;
+                            }
+                        }
+                        button {
+                            font-family: 'Overpass', sans-serif;
+                            font-size: 110%;
+                            color:#1b262c;
+                            width: 100%;
+                            height: 40px;
+                            border: none;
+                            cursor: pointer;
+                            border-radius: 3px 3px 3px 3px;
+                            -moz-border-radius: 3px 3px 3px 3px;
+                            -webkit-border-radius: 3px 3px 3px 3px;
+                            
+                            background-color: rgb(255, 192, 175);
+                            
+                            margin-top: 10px;
+                            transition: all .3s ease;
+        
+                            &:hover{
+                                background-color: rgb(201, 81, 47);
+                                color:rgb(255, 192, 175);
+                            }
+                        }
+                    }
+                    .form__foot {
+                        font-size: 90%;
+                        text-align: center;    
+                        margin-top: 15px;
+                        a {
+                            display: block;
+                            text-decoration: none;
+                            color: rgb(255, 192, 175);
+                            margin-bottom: 3px;
+                            transition: all .3s ease;
+                            &:hover {
+                                color: rgb(201, 81, 47);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .bad{
+            color: rgb(187, 39, 39);
+            padding: 1em;
+            background-color: #1b262cd0;
+        }
+    }
+
+    .back {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+        a {
+            display: block;
+            text-decoration: none;
+            color: rgb(255, 192, 175);
+            margin-bottom: 3px;
+            transition: all .3s ease;
+            &:hover {
+                color: rgb(201, 81, 47);
+            }
+        }
+    }
+
+    .verify__code{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 23em;
+        max-width: 320px;
+        padding: 20px 10px;
+        background-color: rgba(163, 46, 13, 0.72);
+
+        -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+        -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+        box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+        
+        border-radius: 3px 3px 3px 3px;
+        -moz-border-radius: 3px 3px 3px 3px;
+        -webkit-border-radius: 3px 3px 3px 3px;
+        
+        box-sizing: border-box;
+        text-align: center;
+
+        .title {
+            width: 100%;
+            color:rgb(255, 192, 175);
+            text-align: center;
+            margin-bottom: 20px;
+            h1{
+                font-size: 1.5em;
+                font-weight: 100;
+            }
+        }
+
+        .verify__form{
+
+            input{
+                font-family: 'Overpass', sans-serif;
+                font-size: 110%;
+                color: #1b262c;
+                
+                display: block;
+                width: 100%;
+                height: 40px;
+                outline: none;
+                margin-bottom: 10px;
+                padding: 5px 5px 5px 10px;
+                
+                box-sizing: border-box;
+                
+                border: none;
+                border-radius: 3px 3px 3px 3px;
+                -moz-border-radius: 3px 3px 3px 3px;
+                -webkit-border-radius: 3px 3px 3px 3px;
+
+                &::placeholder{
+                    font-family: 'Overpass', sans-serif;
+                    color: #d1b1b1;
+                }
+            }
+
+            button{
+                font-family: 'Overpass', sans-serif;
+                font-size: 110%;
+                color:#1b262c;
+                width: 100%;
+                height: 2.5em;
+                border: none;
+                cursor: pointer;
+                border-radius: 3px 3px 3px 3px;
+                -moz-border-radius: 3px 3px 3px 3px;
+                -webkit-border-radius: 3px 3px 3px 3px;
+                                
+                background-color: rgb(255, 192, 175);
+                                
+                margin-top: 10px;
+                transition: all .3s ease;
+            
+                &:hover{
+                    background-color: rgb(201, 81, 47);
+                    color:rgb(255, 192, 175);
+                }
+                
+            }
+        }
+    }
+}

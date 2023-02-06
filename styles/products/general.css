@@ -1,0 +1,106 @@
+/*Google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Raleway&family=Kanit');
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Marck+Script&family=Sacramento&display=swap');
+
+/*Vars*/
+:root{
+  --first: #522b11;
+  --second: #854D27;
+  /*Colors for menu button*/
+  --light: #eee;
+  --dark: #333;
+
+  /*Sizes*/
+  --small: 200px;
+  --medium: 400px;
+  --large: 600px; 
+  /*Typography*/
+  --font: 'awesome font', 'Roboto', 'Raleway', sans-serif; 
+}
+
+/*General rules*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+  display: none;
+}
+
+/*Styles*/
+:is(
+  nav,
+  header,
+  main,
+  footer
+) a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  transition: all .3s ease;
+}
+
+:is(
+  nav,
+  header,
+  main,
+  footer
+) li {
+  list-style: none;
+}
+
+:is(
+  nav,
+  header,
+  main,
+  footer
+) .division__title {
+  font-family: 'Lato', Roboto;
+  padding-top: 1.5em;
+}
+
+/*Layout*/
+
+nav{
+  grid-area: nav;
+}
+
+header{
+  grid-area: header;
+}
+
+main{
+  grid-area: main;
+}
+
+footer{
+  grid-area: footer;
+}
+
+body{
+  background-color: #ebebeb;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 
+    'nav nav nav'
+    'header header header'
+    'main main main'
+    'footer footer footer';
+}
+/*Querys layout*/
+@media screen and (max-width: 600px) {
+  body{
+    grid-template-columns: 100%;
+    grid-template-areas:     
+      'header'
+      'main'
+      'footer'
+      'nav';
+  }
+}
