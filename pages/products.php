@@ -34,46 +34,24 @@
     
 
     <main id="Home">
-        <?php
-            session_start();
-            if(isset($_SESSION['UserRole'])){
-                if($_SESSION['UserRole']==1){
-                    ?>
-                        <button>Agregar elemento</button>
-                    <?php
-                }else{
-                    ?>
-                        <h1>pakiao</h1>
-                    <?php
+        <div>
+            <h1>Productos</h1>
+            <?php
+                session_start();
+                if(isset($_SESSION['UserRole'])){
+                    if($_SESSION['UserRole']==1){
+                        ?>
+                            <button>Agregar elemento</button>
+                        <?php
+                    }
                 }
-            }else{
-                ?>
-                    <h1>pakiao</h1>
-                <?php
-            }
-        ?>
+            ?>
+        </div>
         <section>
             <article>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <?php
+                    include('../php/show-products.php');
+                ?>
             </article>
         </section>
     </main>
