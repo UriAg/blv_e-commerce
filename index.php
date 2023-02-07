@@ -19,7 +19,8 @@ $messageIn = $_POST['message'];
     <!--Styles-->
     <link rel="stylesheet" href="./styles/index/index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Buscando la veta</title>
 </head>
 <body>
@@ -42,7 +43,51 @@ $messageIn = $_POST['message'];
 
     <!--Header-->
     <header id="header">
-        <div class="header">
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+
+        <div class="title-blv" id="Home">
+            <h1>Buscando la veta</h1>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="./assets/bg/dkstp/Tablaschicas.JPG" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="./assets/bg/dkstp/DSC_0299.JPG" class="d-block " alt="slider_image">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/bg/dkstp/DSC_0077.JPG" class="d-block " alt="slider_image">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/bg/dkstp/DSC_0093.JPG" class="d-block " alt="slider_image">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/bg/dkstp/DSC_0002.JPG" class="d-block " alt="slider_image">
+            </div>
+            <svg class="separator-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                <path class="elementor-shape-fill" d="M500.2,94.7L0,0v100h1000V0L500.2,94.7z"></path>
+            </svg>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+        <!-- <div class="header">
             <h1>Buscando la veta</h1>
             <div class="indicators">
                 <button class="slider__indicator"></button>
@@ -71,14 +116,12 @@ $messageIn = $_POST['message'];
                 </div>
                 
             </div>
-            <svg class="separator-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-                <path class="elementor-shape-fill" d="M500.2,94.7L0,0v100h1000V0L500.2,94.7z"></path>
-            </svg>
+            
         </div>
 
         </div>
         <button class="btn__control btn__control--prev">&#60;</button>
-        <button class="btn__control btn__control--next">&#62;</button>
+        <button class="btn__control btn__control--next">&#62;</button> -->
     </header>
 
 
@@ -187,6 +230,7 @@ $messageIn = $_POST['message'];
         </div>
     </footer>
     <script src="./app/index.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>

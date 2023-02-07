@@ -2,17 +2,65 @@ main {
   width: 100%;
   min-height: 100vh;
 }
+main .upload-control {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 0.5em;
+}
+main .upload-control h1 {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+}
+main .upload-control .add-element {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  border-radius: 10px;
+  height: 3em;
+  width: 10em;
+  border: none;
+  outline: none;
+  background-color: #8453b6;
+  transition: background 0.3s ease;
+}
+main .upload-control .add-element:hover {
+  cursor: cell;
+  background-color: #542a7d;
+}
+main .upload-control .offcanvas .offcanvas-body .product-add-form .form-control {
+  margin: 0.5em;
+  transition: all 0.3s ease;
+}
+main .upload-control .offcanvas .offcanvas-body .product-add-form .form-control[type='submit']:hover {
+  background-color: #542a7d;
+  color: #ebebeb;
+}
 main section article {
   width: 100%;
-  background-color: #444;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
 }
-main section article div {
+main section article .card {
   margin: 0.5em;
-  background-color: aquamarine;
-  width: 15%;
-  height: 15em;
+  background-color: #d2d1d1;
+  overflow: hidden;
+  width: 18rem;
+  max-height: 25em;
+}
+main section article .card .card-img-top {
+  height: 13em;
+}
+main section article .card .card-body .card-text {
+  overflow: hidden;
+  white-space: nowrap;
+  max-height: 25px;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width: 600px) {
+  main .upload-control {
+    justify-content: center;
+    flex-direction: column;
+  }
 }

@@ -3,7 +3,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../styles/products/products.css">
     <!--Estrella logo-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
@@ -25,8 +27,8 @@
                     <li><a href="../index.php" id="menu_guide">Volver al inicio</a></li>
                     <li><a href="#Social" id="menu_guide">Redes sociales</a></li>
                     <li><a href="#" id="menu_guide">Carrito</a></li>
-                    <li><a href="./pages/login.php" id="menu_guide" class="login">Iniciar sesión</a></li>
-                    <li><a href="./pages/login.php?logout=1" id="menu_guide" class="logout">Cerrar sesión</a></li>
+                    <li><a href="./login.php" id="menu_guide" class="login">Iniciar sesión</a></li>
+                    <li><a href="./login.php?logout=1" id="menu_guide" class="logout">Cerrar sesión</a></li>
                 </ul>
         </nav>
     </header>
@@ -34,14 +36,32 @@
     
 
     <main id="Home">
-        <div>
+        <div class="upload-control">
             <h1>Productos</h1>
             <?php
                 session_start();
                 if(isset($_SESSION['UserRole'])){
                     if($_SESSION['UserRole']==1){
                         ?>
-                            <button>Agregar elemento</button>
+                            
+                            <button class="add-element" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id1" aria-controls="Id1">Agregar producto</button>
+                            
+                            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="Id1" aria-labelledby="Agregar producto">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title" id="add-product">¡Agrega un producto!</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <form class="product-add-form row w-100" action="../php/upload-prod.php" method="POST" enctype="multipart/form-data">
+                                        <input type="text" name="product-title" class="form-control" placeholder="Ingresar titulo del producto" required>
+                                        <input type="text" name="product-category" class="form-control" placeholder="Ingresar la categoría del producto">
+                                        <textarea name="product-description" class="form-control" cols="30" rows="5" placeholder="Ingresa una breve descripción" required></textarea>
+                                        <input type="number" name="product-price" class="form-control" placeholder="Ingresar precio" required>
+                                        <input type="file" name="product-image" class="form-control" required>
+                                        <input type="submit" name="send-product" class="form-control" value="Subir producto">
+                                    </form>
+                              </div>
+                            </div>
                         <?php
                     }
                 }
@@ -49,6 +69,7 @@
         </div>
         <section>
             <article>
+                
                 <?php
                     include('../php/show-products.php');
                 ?>
@@ -96,5 +117,6 @@
     </footer>
 
     <script src="../app/navigation.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

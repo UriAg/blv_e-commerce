@@ -22,7 +22,7 @@ logout.addEventListener('click', ()=>{
 //NAVBAR BACKGROUND COLOR CHANGE EFFECT
 /* Scroll navbar effect */
 const nav = document.getElementById("nav");
-if(window.screen.width > 576){
+if(window.screen.width > 600){
     window.onscroll = () =>{
         if(window.scrollY >= 300){
             nav.classList.add('scroll-style');
