@@ -1,5 +1,17 @@
 <?php
+if(isset($_GET['logout'])){
+    session_start();
+    session_unset();
+    session_destroy();
+    ?>
+        <script>
+            sessionStorage.clear();
+        </script>
+    <?php
+}
+
 if(isset($_POST['btn__submit'])){
+session_start();
 $name = $_POST['name'];
 $issue = $_POST['issue'];
 $messageIn = $_POST['message'];
@@ -7,12 +19,8 @@ $messageIn = $_POST['message'];
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta http-equiv="Expires" content="0">
-    <meta http-equiv="Last-Modified" content="0">
-    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
-    <meta http-equiv="Pragma" content="no-cache">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,98 +43,85 @@ $messageIn = $_POST['message'];
                 <li><a href="#About" id="menu_guide">Sobre nosotros</a></li>
                 <li><a href="#Social" id="menu_guide">Redes sociales</a></li>
                 <li><a href="#Contact" id="menu_guide">Contactanos</a></li>
-                <li><a href="#" id="menu_guide">Carrito</a></li>
-                <li><a href="./pages/login.php" id="menu_guide" class="login">Iniciar sesión</a></li>
-                <li><a href="./pages/login.php?logout=1" id="menu_guide" class="logout">Cerrar sesión</a></li>
+                <li>
+                    <!--Cart modal toggle button-->
+                <button type="button" id="menu_guide" class="modal__button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Carrito
+                </button>
+                </li>
+                <li class="login"><a href="./login.php" id="menu_guide">Iniciar sesión</a></li>
+                <li class="logout"><a href="../index.php?logout=1" id="menu_guide">Cerrar sesión</a></li>
             </ul>
     </nav>
 
     <!--Header-->
     <header id="header">
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-        </div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            </div>
 
-        <div class="title-blv" id="Home">
-            <h1>Buscando la veta</h1>
-        </div>
+            <div class="title-blv" id="Home">
+                <h1>Buscando la veta</h1>
+            </div>
 
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-                <img src="./assets/bg/dkstp/Tablaschicas.JPG" class="d-block w-100" alt="...">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="./assets/bg/dkstp/Tablaschicas.JPG" class="slider__img d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="./assets/bg/dkstp/DSC_0299.JPG" class="slider__img d-block " alt="slider_image">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/bg/dkstp/DSC_0077.JPG" class="slider__img d-block " alt="slider_image">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/bg/dkstp/DSC_0093.JPG" class="slider__img d-block " alt="slider_image">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/bg/dkstp/DSC_0002.JPG" class="slider__img d-block " alt="slider_image">
+                </div>
+                <svg class="separator-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                    <path class="elementor-shape-fill" d="M500.2,94.7L0,0v100h1000V0L500.2,94.7z"></path>
+                </svg>
             </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="./assets/bg/dkstp/DSC_0299.JPG" class="d-block " alt="slider_image">
-            </div>
-            <div class="carousel-item">
-                <img src="./assets/bg/dkstp/DSC_0077.JPG" class="d-block " alt="slider_image">
-            </div>
-            <div class="carousel-item">
-                <img src="./assets/bg/dkstp/DSC_0093.JPG" class="d-block " alt="slider_image">
-            </div>
-            <div class="carousel-item">
-                <img src="./assets/bg/dkstp/DSC_0002.JPG" class="d-block " alt="slider_image">
-            </div>
-            <svg class="separator-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-                <path class="elementor-shape-fill" d="M500.2,94.7L0,0v100h1000V0L500.2,94.7z"></path>
-            </svg>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-
-        <!-- <div class="header">
-            <h1>Buscando la veta</h1>
-            <div class="indicators">
-                <button class="slider__indicator"></button>
-                <button class="slider__indicator"></button>
-                <button class="slider__indicator"></button>
-                <button class="slider__indicator"></button>
-                <button class="slider__indicator"></button>
-            </div>
-        </div>
-        <div class="slide" id="Home">
-            <div class="slider" id="slider">
-                <div class="slider__section">
-                    <img class='slider__img' src="./assets/bg/dkstp/Tablaschicas.JPG" alt="">
-                </div>
-                <div class="slider__section">
-                    <img class='slider__img' src="./assets/bg/dkstp/DSC_0299.JPG" alt="">
-                </div>
-                <div class="slider__section">
-                    <img class='slider__img' src="./assets/bg/dkstp/DSC_0077.JPG" alt="">
-                </div>
-                <div class="slider__section">
-                    <img class='slider__img' src="./assets/bg/dkstp/DSC_0093.JPG" alt="">
-                </div>
-                <div class="slider__section">
-                    <img class='slider__img' src="./assets/bg/dkstp/DSC_0002.JPG" alt="">
-                </div>
-                
-            </div>
-            
-        </div>
-
-        </div>
-        <button class="btn__control btn__control--prev">&#60;</button>
-        <button class="btn__control btn__control--next">&#62;</button> -->
     </header>
 
 
     <!--Content-->
     <main id="main">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    elementos
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Pagar</button>
+                </div>
+                </div>
+            </div>
+        </div>
         <h2 id="Products" class="division__title">Categorias</h2>
         <section class="main">
             <article>

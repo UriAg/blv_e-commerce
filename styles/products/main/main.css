@@ -6,11 +6,12 @@ main .upload-control {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-top: 0.5em;
+  padding: 0.5em;
 }
 main .upload-control h1 {
   font-family: 'Lato', sans-serif;
   text-align: center;
+  margin: 0;
 }
 main .upload-control .add-element {
   font-family: 'Roboto', sans-serif;
@@ -35,28 +36,162 @@ main .upload-control .offcanvas .offcanvas-body .product-add-form .form-control[
   background-color: #542a7d;
   color: #ebebeb;
 }
-main section article {
+main section article .store-wrapper {
+  position: static;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  background-color: #ebebeb;
+}
+main section article .store-wrapper .category__list {
+  width: 20%;
+  height: auto;
+  text-align: center;
+  border-right: 1px solid #ddd;
+}
+main section article .store-wrapper .category__list .offcanvas .offcanvas-body .product-add-form .form-control {
+  margin: 0.5em;
+  transition: all 0.3s ease;
+}
+main section article .store-wrapper .category__list .offcanvas .offcanvas-body .product-add-form .form-control[id="category__btn__add"]:hover {
+  background-color: #542a7d;
+  color: #ebebeb;
+}
+main section article .store-wrapper .category__list .category__items {
+  position: sticky;
+  top: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main section article .store-wrapper .category__list .category__items .add__category {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  width: 80%;
+  height: 2.5em;
+  background-color: #8453b6;
+  margin: 0.5em 0 0.5em 0;
+  color: #ebebeb;
+  transition: background 0.3s ease;
+}
+main section article .store-wrapper .category__list .category__items .add__category:hover {
+  color: #ebebeb;
+  background-color: #542a7d;
+}
+main section article .store-wrapper .category__list .category__items .links__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main section article .store-wrapper .category__list .category__items .links__container .category__btn__selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 80%;
+  height: 2.5em;
+  background-color: #ff6666;
+  margin: 0.5em 0 0.5em 0;
+  color: #ebebeb;
+  transition: background 0.3s ease;
+}
+main section article .store-wrapper .category__list .category__items .links__container .category__btn__selector:hover {
+  color: #ebebeb;
+  background-color: #d05050;
+}
+main section article .store-wrapper .category__list .category__items .links__container .category__btn__selector--admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 0 0 10px;
+  width: 80%;
+  height: 2.5em;
+  background-color: #ff6666;
+  margin: 0.5em 0 0.5em 0;
+  color: #ebebeb;
+  transition: background 0.3s ease;
+}
+main section article .store-wrapper .category__list .category__items .links__container .category__btn__selector--admin:hover {
+  color: #ebebeb;
+  background-color: #d05050;
+}
+main section article .store-wrapper .category__list .category__items .links__container .active {
+  background-color: #8f73b7;
+}
+main section article .store-wrapper .category__list .category__items .links__container .active:hover {
+  color: #ebebeb;
+  background-color: #8f73b7;
+}
+main section article .store-wrapper .category__list .category__items .links__container form .btn {
+  height: 2.85em;
+  border-radius: 0 10px 10px 0;
+}
+main section article .store-wrapper .products__list {
+  width: 80%;
+  display: flex;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
-main section article .card {
+main section article .store-wrapper .products__list .card {
   margin: 0.5em;
-  background-color: #d2d1d1;
-  overflow: hidden;
-  width: 18rem;
-  max-height: 25em;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  width: 14.35em;
 }
-main section article .card .card-img-top {
-  height: 13em;
+main section article .store-wrapper .products__list .card label {
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
-main section article .card .card-body .card-text {
-  overflow: hidden;
-  white-space: nowrap;
-  max-height: 25px;
-  text-overflow: ellipsis;
+main section article .store-wrapper .products__list .card label form {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+main section article .store-wrapper .products__list .card label form .btn {
+  border-radius: 0;
+  padding: 0;
+  width: 100%;
+  height: 2em;
+}
+main section article .store-wrapper .products__list .card label .card-img-top {
+  height: 15em;
+  object-fit: fill;
+}
+main section article .store-wrapper .products__list .card label .card-body {
+  width: 100%;
+  border-top: 1px solid #c1c1c194;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.3s ease;
+  color: #000;
+}
+main section article .store-wrapper .products__list .card label .card-body .card-price {
+  text-align: center;
+  font-size: 1.4rem;
+}
+main section article .store-wrapper .products__list .card label .card-body .card-title {
+  text-align: center;
+  font-size: 1rem;
+}
+main section article .store-wrapper .products__list .card label .products__show__form {
+  visibility: hidden;
+}
+main section article .store-wrapper .products__list .card label:hover {
+  -webkit-box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.18);
+}
+main section article .store-wrapper .product__window__info {
+  width: 100%;
+  height: 100%;
+  background-color: #8453b6;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 }
 @media screen and (max-width: 600px) {
   main .upload-control {

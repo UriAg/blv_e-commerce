@@ -15,7 +15,6 @@ if (isset($_POST['init__btn'])) {
                     if (password_verify($password, $SearchPass['pass'])) {
                         $query_name = mysqli_query($conex, "SELECT * FROM `userinfo` WHERE email = '$email'");
                         $row_info = $query_name->fetch_assoc();
-                        session_start();
                         $_SESSION['rol'] = $row_info['role_id'];
                         $_SESSION['showemail'] = $row_info['email'];
                         $_SESSION['showname'] = $row_info['name'];
@@ -31,30 +30,20 @@ if (isset($_POST['init__btn'])) {
                                 $var = isset($_SESSION['showemail']) ? $_SESSION['showemail'] : null;
                                 echo "'" . $var . "'";
                                 ?>);
+
+                                setTimeout(function() {
+                                    window.location.replace("http://localhost/Tienda/index.php");
+                                }), 2000;
                             </script>
                         <?php
 
                         switch ($_SESSION['rol']) {
                             case 1:
                                 $_SESSION['UserRole'] = 1;
-                                ?>
-                                    <script>
-                                        setTimeout(function() {
-                                            window.location.replace("http://localhost/Tienda/index.php");
-                                        }), 2000;
-                                    </script>
-                                <?php
                             break;
 
                             case 2:
                                 $_SESSION['UserRole'] = 2;
-                                ?>
-                                    <script>
-                                        setTimeout(function() {
-                                            window.location.replace("http://localhost/Tienda/index.php");
-                                        }), 2000;
-                                    </script>
-                                <?php
                             break;
                         }
                         

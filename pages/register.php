@@ -40,7 +40,7 @@
                 </div>
             </div>
             <?php
-                include("./php/log-reg-rec.php");
+                include("../php/log-reg-rec.php");
             ?>
             <div class="back">
                 <a href="../index.php">Volver</a>

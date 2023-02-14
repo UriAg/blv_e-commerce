@@ -1,5 +1,5 @@
 <?php
-    include_once '../php/db.php';
+    include_once '../db.php';
     
     
     if(isset($_POST['send-product'])){
@@ -17,7 +17,7 @@
                             $query= "INSERT INTO `products`(`title`, `category`, `description`, `price`, `img`) VALUES ('$ProdTitle','$ProdCat','$ProdDesc','$ProdPrice','$ProdImg')";
                             $result = mysqli_query($conex, $query);
                             if($result){
-                                header("location:../pages/products.php");
+                                header("location:../../pages/products.php");
                             }
                         }
                     }

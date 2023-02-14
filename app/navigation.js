@@ -3,7 +3,7 @@
 const login =document.querySelector(".login");
 const logout =document.querySelector(".logout");
 
-if(localStorage.getItem('name')!==null){
+if(localStorage.getItem('name')!=null){
     login.style.display = "none";
     logout.style.display = "inline";
 }else{

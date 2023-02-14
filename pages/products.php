@@ -8,15 +8,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/products/products.css">
-    <!--Estrella logo-->
+    <!--Bootstrap Icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--CSS-->
+    <link rel="stylesheet" href="../styles/products/products.css">
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
-
     <header id="nav">
         <nav>
                 <a href="#Home" class="logo"><span class="material-symbols-outlined">
@@ -26,9 +28,14 @@
                 <ul class="menu">
                     <li><a href="../index.php" id="menu_guide">Volver al inicio</a></li>
                     <li><a href="#Social" id="menu_guide">Redes sociales</a></li>
-                    <li><a href="#" id="menu_guide">Carrito</a></li>
-                    <li><a href="./login.php" id="menu_guide" class="login">Iniciar sesión</a></li>
-                    <li><a href="./login.php?logout=1" id="menu_guide" class="logout">Cerrar sesión</a></li>
+                    <li>
+                        <!--Cart modal toggle button-->
+                    <button type="button" id="menu_guide" class="modal__button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Carrito
+                    </button>
+                    </li>
+                    <li class="login"><a href="./login.php" id="menu_guide">Iniciar sesión</a></li>
+                    <li class="logout"><a href="../index.php?logout=1" id="menu_guide">Cerrar sesión</a></li>
                 </ul>
         </nav>
     </header>
@@ -36,6 +43,24 @@
     
 
     <main id="Home">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                </div>
+            </div>
+        </div>
         <div class="upload-control">
             <h1>Productos</h1>
             <?php
@@ -43,7 +68,6 @@
                 if(isset($_SESSION['UserRole'])){
                     if($_SESSION['UserRole']==1){
                         ?>
-                            
                             <button class="add-element" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id1" aria-controls="Id1">Agregar producto</button>
                             
                             <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="Id1" aria-labelledby="Agregar producto">
@@ -52,16 +76,37 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                 </div>
                                 <div class="offcanvas-body">
-                                    <form class="product-add-form row w-100" action="../php/upload-prod.php" method="POST" enctype="multipart/form-data">
+                                    <form class="product-add-form row w-100" action="../php/products/upload-prod.php" method="POST" enctype="multipart/form-data">
                                         <input type="text" name="product-title" class="form-control" placeholder="Ingresar titulo del producto" required>
                                         <input type="text" name="product-category" class="form-control" placeholder="Ingresar la categoría del producto">
-                                        <textarea name="product-description" class="form-control" cols="30" rows="5" placeholder="Ingresa una breve descripción" required></textarea>
+                                        <textarea name="product-description" class="form-control" cols="30" rows="5" maxlength="255" placeholder="Ingresa una breve descripción" required></textarea>
                                         <input type="number" name="product-price" class="form-control" placeholder="Ingresar precio" required>
-                                        <input type="file" name="product-image" class="form-control" required>
-                                        <input type="submit" name="send-product" class="form-control" value="Subir producto">
+                                        <input type="file" id="file-input" name="product-image" class="form-control" required>
+                                        <input type="submit" id="product-submit" name="send-product" class="form-control" value="Subir producto">
                                     </form>
                               </div>
                             </div>
+                            <script>
+                                //Img size validator
+                                const maxSize = 1000000; 
+
+                                const FileInput = document.querySelector("#file-input");
+                                const ProductSubmit = document.querySelector('#product-submit')
+
+
+                                ProductSubmit.disabled = "true";
+                                FileInput.addEventListener("change", function () {
+                                    if (this.files.length <= 0) return;
+                                    const archive = this.files[0];
+                                    if (archive.size > maxSize) {
+                                        const MbSize = maxSize / 1000000;
+                                        alert(`El tamaño máximo es ${MbSize} MB`);
+                                        FileInput.value = "";
+                                    } else {
+                                        ProductSubmit.disabled = false;
+                                    }
+                                });
+                            </script>
                         <?php
                     }
                 }
@@ -69,10 +114,58 @@
         </div>
         <section>
             <article>
+                <div class="store-wrapper">
+                    <div class="category__list">                        
+                        <div class="category__items">
+                        <h4>Seleccionar categoría</h4>
+                            <?php
+                                if(isset($_SESSION['UserRole'])){
+                                    if($_SESSION['UserRole']==1){
+                                        ?>
+                                            <button class="add__category" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id2" aria-controls="Id2">Agregar categoría</button>
+                            
+                                            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="Id2" aria-labelledby="Agregar categoría">
+                                                <div class="offcanvas-header">
+                                                    <h5 class="offcanvas-title" id="add-category">¡Agrega una categoría!</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                </div>
+                                                <div class="offcanvas-body">
+                                                    <form class="product-add-form row w-100" method="POST" action="../php/products/categories/upload-category.php" enctype="multipart/form-data">
+                                                        <input type="text" id="category__input1" name="category-title" class="form-control" placeholder="Ingresa la categoría" required>
+                                                        <button id="category__btn__add" name="send-category" class="form-control">Añadir categoría</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        <?php
+                                    }
+                                }
+                            ?>
+                            <?php
+                                include('../php/products/categories/show-categories.php');
+                            ?>
+                        </div>
+
+                    </div>
+                    <div class="products__list">
+                        <?php
+                            include('../php/products/show-products.php');
+                        ?>
+
+                        <div class="offcanvas offcanvas-start w-100" data-bs-scroll="true" tabindex="-1" id="Id3" aria-labelledby="Ver producto">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="product__shop">¡Buena elección!</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <?php
+                                    include('../php/products/product-details.php');
+                                ?>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
                 
-                <?php
-                    include('../php/show-products.php');
-                ?>
             </article>
         </section>
     </main>
@@ -116,6 +209,7 @@
         </div>
     </footer>
 
+    <script src="../app/product.js"></script>
     <script src="../app/navigation.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

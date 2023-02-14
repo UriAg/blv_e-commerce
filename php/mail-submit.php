@@ -1,9 +1,10 @@
 <?php
-
+if(session_status() == PHP_SESSION_ACTIVE){
+    $email = $_SESSION['showemail'];
+}
 //Usar el email del local storage y usarlo para el envio
 if (isset($_POST['btn__submit'])) {
     $name = filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS);
-    $email = filter_var($InsEmail, FILTER_SANITIZE_EMAIL);
     $issue = filter_var($_POST['issue'], FILTER_SANITIZE_SPECIAL_CHARS);
     $messageIn = filter_var($_POST['message'], FILTER_SANITIZE_SPECIAL_CHARS);
     if (!empty($_POST['name'])) {

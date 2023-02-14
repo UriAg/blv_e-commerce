@@ -1,10 +1,7 @@
 <?php
     include_once '../php/db.php';
     session_start();
-    if(isset($_GET['logout'])){
-        session_unset();
-        session_destroy();
-    }
+    
     if(isset($_SESSION['rol']) && isset($_SESSION['showemail'])){
         header('location:../index.php');
     }

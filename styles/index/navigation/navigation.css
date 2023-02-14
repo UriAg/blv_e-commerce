@@ -16,15 +16,26 @@
 #nav .logo {
   margin-left: 5em;
 }
-#nav button {
+#nav .btn__menu {
   display: none;
 }
 #nav .menu {
   display: flex;
+  margin: 0;
 }
 #nav .menu li {
   text-decoration: none;
   padding: 0.3em 0.5em;
+}
+#nav .menu li .modal__button {
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+#nav .menu li .modal__button:hover {
+  color: rgba(152, 51, 23, 0.708);
 }
 #nav .menu li a:hover {
   color: rgba(152, 51, 23, 0.708);

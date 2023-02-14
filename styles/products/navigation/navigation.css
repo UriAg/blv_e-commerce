@@ -1,8 +1,5 @@
 #nav {
-  position: sticky;
-  top: 0;
   background-color: #c4421e;
-  transition: background 0.3s ease;
 }
 #nav nav {
   z-index: 3;
@@ -20,7 +17,7 @@
 #nav nav .logo {
   margin-left: 5em;
 }
-#nav nav button {
+#nav nav .btn__menu {
   display: none;
 }
 #nav nav .menu {
@@ -30,6 +27,16 @@
 #nav nav .menu li {
   text-decoration: none;
   padding: 0.3em 0.5em;
+}
+#nav nav .menu li .modal__button {
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+#nav nav .menu li .modal__button:hover {
+  color: rgba(152, 51, 23, 0.708);
 }
 #nav nav .menu li a:hover {
   color: rgba(152, 51, 23, 0.708);
