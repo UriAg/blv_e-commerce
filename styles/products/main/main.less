@@ -1,6 +1,62 @@
 main{
     width: 100%;
     min-height: 100vh;
+
+    .cart_modal{
+        .modal-dialog{
+            .modal-content{
+                .cart_modal__body{
+                    .empty-cart{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin: .5em;
+                        font-weight: 500;
+                    }
+                    .cart-product{
+                        padding: .5em;
+                        border-bottom: 1px solid #000;
+                        .info__cart__products{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            text-align: center;
+                            .prod__quantity{
+                                width: 5%;
+                                font-weight: 600;
+                            }
+                            .prod__title{
+                                display: inline-block;
+                                width: 60%;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                overflow-x: clip;
+                                margin: 0;
+                            }
+                            .prod__price{
+                                display: inline-block;
+                                width: 20%;
+                                font-weight: 600;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                overflow-x: clip;
+                            }
+                            .svg-close-image{
+                                width: 5%;
+                                display: inline-block;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                .modal-footer{
+                    p{
+                        font-weight: bolder;
+                    }
+                }
+            }
+        }
+    }
     .upload-control{
         display: flex;
         justify-content: space-around;
@@ -155,7 +211,7 @@ main{
                         margin: .5em;
                         transition: all .3s ease;
                         background-color: #fff;
-                        width: 14.35em;             
+                        width: 14em;             
                         label{
                             transition: all .3s ease;
                             cursor: pointer;
@@ -172,7 +228,13 @@ main{
                             }
                             .card-img-top{
                                 height: 15em;
-                                object-fit: fill;
+                                width: 100%;
+                                overflow: hidden;
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                    transition: all .3s ease;
+                                }
                             }
                             .card-body{
                                 width: 100%;
@@ -180,11 +242,14 @@ main{
                                 font-family: 'Roboto', sans-serif;
                                 transition: all .3s ease;
                                 color: #000;
-                                .card-price{
+                                .card-title{
                                     text-align: center;
                                     font-size: 1.4rem;
+                                    white-space: nowrap;
+                                    text-overflow: ellipsis;
+                                    overflow: hidden;
                                 }
-                                .card-title{
+                                .card-price{
                                     text-align: center;
                                     font-size: 1rem;
                                 }
@@ -196,6 +261,82 @@ main{
                                 -webkit-box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.18);
                                 -moz-box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.18);
                                 box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.18);
+                                .card-img-top{
+                                    img{
+                                        transform: scale(1.2);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .offcanvas{
+                        background-color: #ebebeb;
+                        .offcanvas-header{
+                            background-color: #8453b6;
+                            color: #fff;
+                        }
+                        .offcanvas-body{
+                            .offcanvas__product__info{
+                                height: 100%;
+                                display: flex;
+                                margin-left: 0;
+                                margin-right: 0;
+                                .info__product__container{
+                                    background-color: #00000013;
+                                    padding: 0 0 0 3em;
+                                    margin: 0;
+                                    h3, h5, p{
+                                        text-align: center;
+                                        font-family: 'Lato', Roboto;
+                                    }
+                                    h3{
+                                        padding-top: 1em;
+                                    }
+                                    h5{
+                                        padding-bottom: 1em;
+                                    }
+                                    p{
+                                        padding: 1em 0 1em 0;
+                                        overflow-wrap: anywhere;
+                                    }
+                                    .pay__methods{
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        align-items: center;
+                                        button{
+                                            margin: .7em 0 .7em 0;
+                                            border-radius: 15px;
+                                            border: none;
+                                            outline: none;
+                                            width: 70%;
+                                            height: 3em;
+                                            &:nth-of-type(4){
+                                                background-color: #ff6666;
+                                                transition: all .3s ease;
+                                                &:hover{
+                                                    background-color: #d05050;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .img__product__container{
+                                    text-align: center;
+                                    background-color: #00000013;
+                                    .carousel{
+                                        position: fixed;
+                                        width: 65%;
+                                        .carousel-inner{
+                                            .carousel-item{
+                                                img{
+                                                    height: 37em;
+                                                    width: 80%;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -217,11 +358,39 @@ main{
         }
     }
 }
-@media screen and (max-width: 600px){
+@media screen and (max-width: 768px){
     main{
         .upload-control{
             justify-content: center;
             flex-direction: column;
+        }
+        section{
+            article{
+                .store-wrapper{
+                    .products__list{
+                        .offcanvas{
+                            .offcanvas-body{
+                                .offcanvas__product__info{
+                                    .img__product__container{
+                                        .carousel{
+                                            position: relative;
+                                            width: 100%;
+                                            .carousel-inner{
+                                                .carousel-item{
+                                                    img{
+                                                        height: 24em!important;
+                                                        width: 100%!important;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

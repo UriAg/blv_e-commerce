@@ -13,8 +13,11 @@
                             $ProdDesc = trim(filter_var($_POST['product-description'], FILTER_SANITIZE_SPECIAL_CHARS));
                             $ProdPrice = trim(filter_var($_POST['product-price'], FILTER_SANITIZE_NUMBER_INT));
                             $ProdImg =addslashes(file_get_contents($_FILES['product-image']['tmp_name']));
+                            $ProdImg1 =addslashes(file_get_contents($_FILES['product-image1']['tmp_name']));
+                            $ProdImg2 =addslashes(file_get_contents($_FILES['product-image2']['tmp_name']));
+                            $ProdImg3 =addslashes(file_get_contents($_FILES['product-image3']['tmp_name']));
                             
-                            $query= "INSERT INTO `products`(`title`, `category`, `description`, `price`, `img`) VALUES ('$ProdTitle','$ProdCat','$ProdDesc','$ProdPrice','$ProdImg')";
+                            $query= "INSERT INTO `products`(`title`, `category`, `description`, `price`, `img`, `imgProd1`, `imgProd2`, `imgProd3`) VALUES ('$ProdTitle','$ProdCat','$ProdDesc','$ProdPrice','$ProdImg','$ProdImg1','$ProdImg2','$ProdImg3')";
                             $result = mysqli_query($conex, $query);
                             if($result){
                                 header("location:../../pages/products.php");

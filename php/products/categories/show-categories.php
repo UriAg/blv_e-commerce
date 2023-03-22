@@ -13,6 +13,8 @@
                     if(isset($_SESSION['UserRole'])){
                         if($_SESSION['UserRole']==1){
                             echo "category__btn__selector--admin";
+                        }else{
+                            echo "category__btn__selector";
                         }
                     }else{
                         echo "category__btn__selector";

@@ -24,7 +24,7 @@
             z-index: 1;
             color: var(--light);
             h1{
-                font-size: 2rem;
+                font-size: 10vw;
             }
         }
 
@@ -46,110 +46,15 @@
         }
     }
 }
-
-//Encabezado
-// #header{
-//     .flexbox(column, center, center);
-//     position: relative;
-//     min-height: min(100vh, 640px);
-//     overflow: hidden;
-//     color: var(--light);
-//     .header{
-//         font-family: 'Marck Script', cursive;
-//         position: absolute;
-//         text-align: center;
-//         padding: 1em;
-//         .font();
-//     }
-
-//     //Galería
-//     .slide{
-//         width: 100%;
-//         height: 100vh;
-//         overflow: hidden;
-//         .slider{
-//             display: flex;
-//             width: 500%;
-//             height: 100vh;
-//             margin-left: -100%;
-//             .slider__section{ 
-//                 width: 100%; 
-//                 height: 100vh;
-//                 .slider__img{
-//                     object-fit: cover;
-//                     display: block;
-//                     width: 100%;
-//                     height: 100vh;
-//                 }
-//             }
-            
-//         }
-//         .separator-top{
-//             position: absolute;
-//             bottom: -2px;
-//             left: 0;
-//             width: 100%;
-//             fill: #ebebeb;
-//         }
-//     }
-// }
-
-
-
-//Indicadores
-.indicators{
-    .flexbox(@jc: center);
-    button{
-        margin: .2rem;
-        padding: .3rem;
-        background-color: var(--light);
-        border: 0;
-        border-radius: .5rem;
-        box-shadow: 0 0 .5rem var(--dark);
-        transition: all .5s ease-out;
-        &.active{
-            padding: .3rem 1rem;
-        }
-    }
-}
-
-//Controles
-button{
-    &:extend(.unstyled);
-    &:extend(.zeroise);
-    &.btn__control{
-        position: absolute;
-        height: 50px;
-        width: 50px;
-        color: rgba(0, 0, 0, 0.626);
-        font-size: 2.5rem;
-        transition: all .1s ease;
-        &:hover{
-            color: #000;
-            background-color: rgba(192, 190, 190);
-            cursor: pointer;
-            width: 51px;
-            height: 51px;
-        }
-    }
-    &.btn__control{
-        &--prev{
-            background-color: rgba(192, 190, 190, 0.626);
-            border-radius: 0 30px 30px 0;
-            left: 0;
-        }
-        &--next{
-            background-color: rgba(192, 190, 190, 0.626);
-            border-radius: 30px 0 0 30px;
-            right: 0;
-        }
-    }
-}
-
 //Mediaquerys
 @media screen and (max-width : 600px) {
     #header{
         .carousel{
+            .title-blv{
+                h1{
+                    
+                }
+            }
             .carousel-indicators{
                 margin-bottom: 0!important;
                 margin-top: 2em!important;
@@ -159,78 +64,3 @@ button{
         }
     }
 }
-
-//Mixins: Estilos que se utilizan como atributos
-.zeroise{
-    .normalize;
-}
-
-.unstyled{
-    outline: none;
-    text-decoration: none;
-    list-style: none;
-}
-
-.cover{
-    .position(absolute; @z: -1);
-    width: 100%;
-    height: 100%;
-}
-
-//Mixins paramétricos: Estilos que reciben argumentos
-
-//Atributos de caja
-.normalize(@m: 0; @p: 0; @b: 0){
-    margin: @m;
-    padding: @p;
-    border: @b;
-}
-
-
-//Atributo flexbox
-.flexbox(
-    @fd: row;
-    @jc: flex-start;
-    @ai: stretch;
-    @g: 0;
-    @fw: wrap;
-    @d: flex
-){
-    display: @d;
-    flex-direction: @fd;
-    justify-content: @jc;
-    align-items: @ai;
-    flex-wrap: @fw;
-    gap: @g;
-}
-
-//Atributos de Position
-.position(@p: relative; @x: 0; @y: 0; @x-axis: left; @y-axis: top; @z: 0){
-    position: @p;
-    @{x-axis}: @x;
-    @{y-axis}: @y;
-    z-index: @z;
-}
-
-.font(@min: .5rem; @mid: 2vw; @max: 5rem){
-    font-size: ~'min(calc(@{min} + @{mid}), @{max})';
-    text-shadow: 0 0 ~'min(calc(@{min}/2 + @{mid}/2), calc(@{max}/2))' var(--dark);
-}
-
-//Mixins Recursivos: Estilos que se repiten en base a una condicion
-.bg-images(@bg; @i: 1) when (@i <= length(@bg)){
-    @img:extract(@bg, @i);
-    &:nth-child(@{i}){
-       --bg: url('@{path}/@{img}.jpg');
-    }
-    .bg-images(@bg; @i+1);
-}
-
-/* Sistema de grillas */
-.grid(@i: 1) when (@i <= @col){
-    .col-@{i}{
-        width: percentage((@i/@col));
-    }
-    .grid(@i+1);
-}
-.grid;

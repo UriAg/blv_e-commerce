@@ -30,7 +30,7 @@ if ($conex) {
                         if ($_SESSION['UserRole'] == 2) {
                         ?>
                             <form action="../php/products/add__to__cart.php" method="POST" class="w-100">
-                                <button type="sumbit" name="cart-btn" class="btn btn-secondary btn-sm w-100" value=<?php echo $ProdId; ?>>
+                                <button type="button" name="cart-btn" class="btn btn-secondary btn-sm w-100 atc__btn" value=<?php echo $ProdId; ?>>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
                                         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                                     </svg>
@@ -40,13 +40,15 @@ if ($conex) {
                         }
                     }
                     ?>
-                    <img src="data:image/jpg;base64,<?php echo $ProdImg; ?>" class="card-img-top" alt="Imagen del producto">
+                    <div class="card-img-top">
+                        <img src="data:image/jpg;base64,<?php echo $ProdImg; ?>" alt="Imagen del producto">
+                    </div>
                     <div class="card-body">
-                        <h3 class="card-price">$<?php echo number_format($ProdPrice, 2, ',', '.'); ?></h3>
-                        <h5 class="card-title"><?php echo $ProdTitle; ?></h5>
+                        <h3 class="card-title"><?php echo $ProdTitle;?></h3>
+                        <h5 class="card-price">$<?php echo number_format($ProdPrice); ?></h5>
                     </div>
                     <form class="products__show__form" method="POST">
-                        <button id=<?php echo $ProdId;?> type="button" name="show__details" data-bs-toggle="offcanvas" data-bs-target="#Id3" aria-controls="Id3"></button>
+                        <button id=<?php echo $ProdId;?> type="button" class="show__details__btn" name="show__details" data-bs-toggle="offcanvas" data-bs-target="#Id3" aria-controls="Id3" value=<?php echo $ProdId;?>></button>
                     </form>
                 </label>
             </div>

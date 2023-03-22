@@ -1,6 +1,7 @@
-if(sessionStorage.getItem('email')=="uriel.aguero1812@gmail.com"){
+//Verify if the user is the administrator
+if(localStorage.getItem('email')=="uriel.aguero1812@gmail.com"){
     $('.category__items .category__btn__selector--admin[category=Todo]').addClass('active');
-    $('.category__btn__selector--admin').click(function(){
+    $('.category__items .category__btn__selector--admin').click(function(){
         //Button category
         var ProductCategory = $(this).attr('category');
 
@@ -22,10 +23,10 @@ if(sessionStorage.getItem('email')=="uriel.aguero1812@gmail.com"){
     });
     //Showing all elements
     $('.category__items .category__btn__selector--admin[category=Todo]').click(function(){
-        function showEverithing(){
+        function showEverything(){
             $('.products__list .card').show();
             $('.products__list .card').css('transform', 'scale(1)');
-        }setTimeout(showEverithing, 300);
+        }setTimeout(showEverything, 300);
     });
 }else{
     $('.category__items .category__btn__selector[category=Todo]').addClass('active');
@@ -51,9 +52,9 @@ if(sessionStorage.getItem('email')=="uriel.aguero1812@gmail.com"){
     });
     //Showing all elements
     $('.category__items .category__btn__selector[category=Todo]').click(function(){
-        function showEverithing(){
+        function showEverything(){
             $('.products__list .card').show();
             $('.products__list .card').css('transform', 'scale(1)');
-        }setTimeout(showEverithing, 300);
+        }setTimeout(showEverything, 300);
     });
 }

@@ -39,6 +39,18 @@ html::-webkit-scrollbar{
   header,
   main,
   footer
+) p,
+  h1,
+  h2,
+  h3{
+  word-break: break-word;
+}
+
+:is(
+  nav,
+  header,
+  main,
+  footer
 ) a {
   cursor: pointer;
   text-decoration: none;

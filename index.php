@@ -5,7 +5,7 @@ if(isset($_GET['logout'])){
     session_destroy();
     ?>
         <script>
-            sessionStorage.clear();
+            localStorage.clear();
         </script>
     <?php
 }
@@ -49,8 +49,8 @@ $messageIn = $_POST['message'];
                     Carrito
                 </button>
                 </li>
-                <li class="login"><a href="./login.php" id="menu_guide">Iniciar sesión</a></li>
-                <li class="logout"><a href="../index.php?logout=1" id="menu_guide">Cerrar sesión</a></li>
+                <li class="login"><a href="./pages/login.php" id="menu_guide">Iniciar sesión</a></li>
+                <li class="logout"><a href="./index.php?logout=1" id="menu_guide">Cerrar sesión</a></li>
             </ul>
     </nav>
 
@@ -104,21 +104,25 @@ $messageIn = $_POST['message'];
 
     <!--Content-->
     <main id="main">
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Cart modal -->
+        <div class="modal fade cart_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    elementos
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Pagar</button>
-                </div>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-0 cart_modal__body">
+                        <!-- cart.js -->
+                        <p class="empty-cart">El carrito está vacío</p>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <p class="total__pay">Total: $0</p>
+                        <div class="modal__buttons">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Pagar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

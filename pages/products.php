@@ -8,14 +8,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <!--Bootstrap Icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!--CSS-->
     <link rel="stylesheet" href="../styles/products/products.css">
-    <!--Jquery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -43,21 +43,25 @@
     
 
     <main id="Home">
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Cart modal -->
+        <div class="modal fade cart_modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-0 cart_modal__body">
+                        <!-- cart.js -->
+                        <p class="empty-cart">El carrito está vacío</p>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <p class="total__pay">Total: $0</p>
+                        <div class="modal__buttons">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Pagar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,7 +73,7 @@
                     if($_SESSION['UserRole']==1){
                         ?>
                             <button class="add-element" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id1" aria-controls="Id1">Agregar producto</button>
-                            
+                            <!-- Product upload offcanvas -->
                             <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="Id1" aria-labelledby="Agregar producto">
                                 <div class="offcanvas-header">
                                     <h5 class="offcanvas-title" id="add-product">¡Agrega un producto!</h5>
@@ -79,12 +83,29 @@
                                     <form class="product-add-form row w-100" action="../php/products/upload-prod.php" method="POST" enctype="multipart/form-data">
                                         <input type="text" name="product-title" class="form-control" placeholder="Ingresar titulo del producto" required>
                                         <input type="text" name="product-category" class="form-control" placeholder="Ingresar la categoría del producto">
-                                        <textarea name="product-description" class="form-control" cols="30" rows="5" maxlength="255" placeholder="Ingresa una breve descripción" required></textarea>
-                                        <input type="number" name="product-price" class="form-control" placeholder="Ingresar precio" required>
+                                        <textarea name="product-description" class="form-control" cols="30" rows="5" maxlength="255" placeholder="Ingresa una descripción" required></textarea>                                        <input type="number" name="product-price" class="form-control" placeholder="Ingresar precio" required>
+                                        <h6 class="w-100 text-center">Imagen Principal</h6>
                                         <input type="file" id="file-input" name="product-image" class="form-control" required>
+                                        <h6 class="w-100 text-center">Imagenes complementarias</h6>
+                                        <input type="file" id="file-input" name="product-image1" class="form-control" required>
+                                        <input type="file" id="file-input" name="product-image2" class="form-control" required>
+                                        <input type="file" id="file-input" name="product-image3" class="form-control" required>
                                         <input type="submit" id="product-submit" name="send-product" class="form-control" value="Subir producto">
                                     </form>
                               </div>
+                            </div>
+                            <!-- Category upload offcanvas -->
+                            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="Id2" aria-labelledby="Agregar categoría">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title" id="add-category">¡Agrega una categoría!</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <form class="product-add-form row w-100" method="POST" action="../php/products/categories/upload-category.php" enctype="multipart/form-data">
+                                        <input type="text" id="category__input1" name="category-title" class="form-control" placeholder="Ingresa la categoría" required>
+                                        <button id="category__btn__add" name="send-category" class="form-control">Añadir categoría</button>
+                                    </form>
+                                </div>
                             </div>
                             <script>
                                 //Img size validator
@@ -123,19 +144,6 @@
                                     if($_SESSION['UserRole']==1){
                                         ?>
                                             <button class="add__category" type="button" data-bs-toggle="offcanvas" data-bs-target="#Id2" aria-controls="Id2">Agregar categoría</button>
-                            
-                                            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="Id2" aria-labelledby="Agregar categoría">
-                                                <div class="offcanvas-header">
-                                                    <h5 class="offcanvas-title" id="add-category">¡Agrega una categoría!</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                                </div>
-                                                <div class="offcanvas-body">
-                                                    <form class="product-add-form row w-100" method="POST" action="../php/products/categories/upload-category.php" enctype="multipart/form-data">
-                                                        <input type="text" id="category__input1" name="category-title" class="form-control" placeholder="Ingresa la categoría" required>
-                                                        <button id="category__btn__add" name="send-category" class="form-control">Añadir categoría</button>
-                                                    </form>
-                                                </div>
-                                            </div>
                                         <?php
                                     }
                                 }
@@ -154,15 +162,37 @@
                         <div class="offcanvas offcanvas-start w-100" data-bs-scroll="true" tabindex="-1" id="Id3" aria-labelledby="Ver producto">
                             <div class="offcanvas-header">
                                 <h5 class="offcanvas-title" id="product__shop">¡Buena elección!</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                <button type="button" class="btn-close btn-outline-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
-                            <div class="offcanvas-body">
-                                <?php
-                                    include('../php/products/product-details.php');
-                                ?>
+                            <div class="offcanvas-body container-fluid p-0">
+                                <div class="offcanvas__product__info row">
+                                    
+                                </div>
                             </div>
                         </div>
 
+                        <script>
+                            //Show the product details without page reset 
+                            $('.show__details__btn').click(function(){
+                                //Product id data 
+                                var IdSelector = $(this).attr('id');
+                                sessionStorage.setItem('IdProd',IdSelector);
+                            });
+                            
+                            $('.show__details__btn').click(function(){
+                                var ident = {
+                                    'id' : $(this).attr('id')
+                                } 
+                                $.ajax({
+                                    url:"../php/products/product-details.php",
+                                    type: "POST",
+                                    data: ident,
+                                    success: function(offcanvas__product__info){
+                                        $(".offcanvas__product__info").html(offcanvas__product__info);
+                                    }
+                                });
+                            });
+                        </script>
                     </div>
                 </div>
                 
@@ -209,6 +239,7 @@
         </div>
     </footer>
 
+    <script src="../app/cart.js"></script>
     <script src="../app/product.js"></script>
     <script src="../app/navigation.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
